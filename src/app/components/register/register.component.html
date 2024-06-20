@@ -1,7 +1,7 @@
 <form [formGroup]="registerForm" (ngSubmit)="submitDetails()">
   <p-card header="Register" [style]="{ width: '360px' }">
     <div class="field">
-      <label for="fullName">FullName</label>
+      <label for="fullName">Nama Lengkap</label>
       <input
         type="text"
         pInputText
@@ -18,6 +18,7 @@
         <div *ngIf="fullName.errors?.['pattern']">Enter a valid Name</div>
       </small>
     </div>
+
     <div class="field">
       <label for="email">Email</label>
       <input
@@ -36,6 +37,45 @@
         <div *ngIf="email.errors?.['email']">Email should be valid</div>
       </small>
     </div>
+
+    <div class="field">
+      <label for="tanggal">Tempat Tanggal Lahir</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="tanggal"
+        class="w-full"
+        name="tanggal"
+        placeholder="5 Maret 2001"
+      />
+      <small
+        *ngIf="tanggal.invalid && (tanggal.dirty || tanggal.touched)"
+        class="block p-error"
+      >
+        <div *ngIf="tanggal.errors?.['required']">Tempat Tanggal Lahir is required.</div>
+        <div *ngIf="tanggal.errors?.['tanggal']">Tempat Tanggal Lahir should be valid</div>
+      </small>
+    </div>
+
+    <div class="field">
+      <label for="tanggal">No Hp</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="hp"
+        class="w-full"
+        name="hp"
+        placeholder="085739203743"
+      />
+      <small
+        *ngIf="hp.invalid && (hp.dirty || hp.touched)"
+        class="block p-error"
+      >
+        <div *ngIf="hp.errors?.['required']">No Hp is required.</div>
+        <div *ngIf="hp.errors?.['tanggal']">No Hp should be valid</div>
+      </small>
+    </div>
+
     <div class="field">
       <label for="password">Password</label>
       <input
